@@ -6,10 +6,15 @@
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-	<header class="lep_global-header">
+	<?php
+		$attachment_id = get_field('page_hero_image');
+		$size = "banner";
+		$image = wp_get_attachment_image_src( $attachment_id, $size );
+	?>
+	<header class="lep_global-header" style="background:url(<?php echo $image[0] ?>) no-repeat center center;background-size:cover;">
 		<div class="lep_global-header-content">
 			<div class="lep_global-logo">
-				
+				Logo
 			</div>
 			<nav class="lep_global-nav">
 				<ul>
