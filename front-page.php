@@ -6,13 +6,12 @@
     		<ul>
 				<?php while ( have_rows('genre_display') ) : the_row(); ?>
 					<li>
-						<a href="<?php the_sub_field(''); ?>">
-							<?php
-								$attachment_id = get_sub_field('genre_display_image');
-								$size = "banner";
-								$image = wp_get_attachment_image_src( $attachment_id, $size );
-							?>
-							<img src="<?php echo $image[0] ?>">
+						<?php
+							$attachment_id = get_sub_field('genre_display_image');
+							$size = "banner";
+							$image = wp_get_attachment_image_src( $attachment_id, $size );
+						?>
+						<a href="<?php the_sub_field(''); ?>" style="background:url(<?php echo $image[0] ?>) no-repeat center center;background-size:cover">
 							<h1><?php the_sub_field('genre_display_label'); ?></h1>
 						</a>
 					</li>
